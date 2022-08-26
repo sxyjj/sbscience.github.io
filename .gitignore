@@ -1,0 +1,37 @@
+# 这是一行注释
+# 如果规则前或中间有“/”斜线分隔符，则这个规则是相对于.gitignore的相对路径，否则这条规则可以匹配.gitignore下的任意层级
+# 如：匹配 doc/frotz 目录，但不匹配 a/doc/frotz 目录
+doc/frotz/
+# 以下两条规则是一样的，如果中间有"/"，那么前面有没有"/"都是一样的
+/doc/frotz
+doc/frotz
+# 仅在当前目录下匹配 doc 文件， 但不包括子目录下的 subdir/doc
+/doc
+# 匹配 frotz 和 a/frotz 目录
+frotz/
+# 忽略 build/ 文件夹下的所有文件
+build/
+# "*"匹配任意个字符（不匹配"/"），"?"匹配单个字符（不匹配"/"），[a-zA-Z]匹配范围内的任意一个字符
+# 以下匹配foo/test.json，foo/bar目录，但不匹配foo/bar/hello.c，因为这中间有一个"/"
+foo/*
+# 匹配所有zip文件
+*.zip
+# **/匹配所有目录
+# 匹配所有目录下的foo目录，和foo是相同的
+**/foo
+foo
+# 匹配所有foo目录下的bar目录或文件
+**/foo/bar
+# 匹配所有以hello开头的文件或目录
+hello.*
+# 不匹配子目录，以下匹配 hello.txt, hello.c 但不匹配 a/hello.java
+/hello.*
+# 用"!"来否定匹配，但是如果一个文件的父文件目录被匹配了，这个文件就不能被否定匹配
+# 匹配所有.ini文件，除了a.ini
+*.ini
+!a.ini
+# 匹配所有，除了foo/bar目录，注：/* - 没有斜杠的话，也会匹配foo/bar 
+/*
+!/foo
+/foo/*
+!/foo/bar
